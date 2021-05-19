@@ -157,7 +157,7 @@
         {#if visible}
           <p>
             {#if showNumbers}
-              [{i}]
+              [{i + 1}]
             {/if}
             {#if showTimestamps && timestamps[i]}
               [{timestamps[i]}]
@@ -222,7 +222,11 @@
     padding-right: 0.5rem;
   }
   .speaker-slat label:not(:first-child) input {
-    display: none;
+    display: block;
+    margin: 0;
+    width: 0;
+    height: 0;
+    outline: none!important;
   }
   .speaker-slat label:not(:first-child) abbr {
     display: block;
@@ -238,6 +242,10 @@
   .speaker-slat label:not(:first-child) input:checked + abbr {
     background-color: #1b4c88;
     color: white;
+  }
+
+  .speaker-slat input[type=checkbox]:focus-visible + abbr {
+    box-shadow: 0 0 0 1px white, 0 0 0 2px #2f98e7;
   }
 
   .controls {

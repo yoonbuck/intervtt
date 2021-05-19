@@ -6,6 +6,7 @@ export interface Dialogue {
 }
 
 export function parseVTT(data: string): Dialogue[] {
+  data = data.replace(/\r\n/g, "\n");
   data = data.replace(/\r/g, "\n");
   let entries = data.trim().split("\n\n");
   console.log(entries);
